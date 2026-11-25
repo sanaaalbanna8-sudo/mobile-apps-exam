@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b1f" />
+  <meta name="description" content="اختبار تقييمي تفاعلي لطالبات BTEC IT حول خصائص تطبيقات الأجهزة المحمولة ومنطق عملها" />
+  <title>تحدي معمارية تطبيقات الهواتف الذكية | BTEC IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='16' y='4' width='32' height='56' rx='8' fill='%236366f1'/%3E%3Crect x='20' y='10' width='24' height='42' rx='4' fill='%2322d3ee'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- الخلفية المتحركة -->
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <main class="app">
+
+    <!-- ===================== شاشة الترحيب ===================== -->
+    <section id="screen-welcome" class="screen active" aria-labelledby="welcome-title">
+      <div class="welcome-grid">
+
+        <div class="hero-art">
+          <svg class="hero-svg" viewBox="0 0 520 520" role="img" aria-label="هاتف ذكي تخرج منه أيقونات المتصفح والبرمجة والحسّاسات والكاميرا وتحديد الموقع والبصمة">
+            <defs>
+              <linearGradient id="gBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3f44a8" />
+                <stop offset="1" stop-color="#141943" />
+              </linearGradient>
+              <linearGradient id="gSide" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1e2263" />
+                <stop offset="1" stop-color="#070a24" />
+              </linearGradient>
+              <linearGradient id="gScreen" x1="0" y1="0" x2="0.4" y2="1">
+                <stop offset="0" stop-color="#2a2580" />
+                <stop offset="0.55" stop-color="#111a4a" />
+                <stop offset="1" stop-color="#083344" />
+              </linearGradient>
+              <linearGradient id="gNeon" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#22d3ee" />
+                <stop offset="0.5" stop-color="#a78bfa" />
+                <stop offset="1" stop-color="#f472b6" />
+              </linearGradient>
+              <linearGradient id="gTile1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#22d3ee" /><stop offset="1" stop-color="#6366f1" />
+              </linearGradient>
+              <linearGradient id="gTile2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a78bfa" /><stop offset="1" stop-color="#ec4899" />
+              </linearGradient>
+              <linearGradient id="gTile3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#34d399" /><stop offset="1" stop-color="#06b6d4" />
+              </linearGradient>
+              <radialGradient id="gGlow" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#22d3ee" stop-opacity="0.55" />
+                <stop offset="0.6" stop-color="#6366f1" stop-opacity="0.18" />
+                <stop offset="1" stop-color="#6366f1" stop-opacity="0" />
+              </radialGradient>
+              <filter id="fBlur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="12" />
+              </filter>
+              <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="b" />
+                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+
+            <circle cx="260" cy="265" r="200" fill="url(#gGlow)" />
+            <ellipse class="orbit o1" cx="260" cy="270" rx="225" ry="78" />
+            <ellipse class="orbit o2" cx="260" cy="270" rx="185" ry="200" />
+
+            <!-- خطوط الاتصال -->
+            <g class="links">
+              <path d="M260 270 L82 116" />
+              <path d="M260 270 L438 124" />
+              <path d="M260 270 L460 300" />
+              <path d="M260 270 L62 300" />
+              <path d="M260 270 L104 446" />
+              <path d="M260 270 L420 448" />
+            </g>
+
+            <ellipse cx="262" cy="478" rx="120" ry="14" fill="#000" opacity="0.55" filter="url(#fBlur)" />
+
+            <!-- الهاتف ثلاثي الأبعاد -->
+            <g class="phone-float">
+              <g transform="rotate(-9 260 270)">
+                <rect x="188" y="106" width="172" height="336" rx="34" fill="url(#gSide)" />
+                <rect x="172" y="94" width="172" height="336" rx="34" fill="url(#gBody)" stroke="url(#gNeon)" stroke-width="2.2" />
+                <rect x="184" y="108" width="148" height="308" rx="24" fill="url(#gScreen)" />
+                <rect x="233" y="117" width="50" height="12" rx="6" fill="#070a24" />
+                <circle cx="272" cy="123" r="2.6" fill="#22d3ee" opacity="0.8" />
+                <!-- محتوى الشاشة -->
+                <rect x="198" y="140" width="70" height="8" rx="4" fill="#fff" opacity="0.55" />
+                <rect x="198" y="154" width="44" height="6" rx="3" fill="#fff" opacity="0.25" />
+                <g class="tiles">
+                  <rect class="tile t1" x="198" y="172" width="34" height="34" rx="10" fill="url(#gTile1)" />
+                  <rect class="tile t2" x="241" y="172" width="34" height="34" rx="10" fill="url(#gTile2)" />
+                  <rect class="tile t3" x="284" y="172" width="34" height="34" rx="10" fill="url(#gTile3)" />
+                  <rect class="tile t4" x="198" y="215" width="34" height="34" rx="10" fill="url(#gTile2)" />
+                  <rect class="tile t5" x="241" y="215" width="34" height="34" rx="10" fill="url(#gTile3)" />
+                  <rect class="tile t6" x="284" y="215" width="34" height="34" rx="10" fill="url(#gTile1)" />
+                </g>
+                <rect x="198" y="262" width="120" height="58" rx="14" fill="#fff" opacity="0.07" stroke="#fff" stroke-opacity="0.12" />
+                <polyline class="chart-line" points="206,306 224,294 240,300 258,282 276,288 296,272 310,278" fill="none" stroke="#22d3ee" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#fGlow)" />
+                <rect x="198" y="332" width="120" height="12" rx="6" fill="#fff" opacity="0.1" />
+                <rect class="bar-fill" x="198" y="332" width="78" height="12" rx="6" fill="url(#gNeon)" />
+                <rect x="198" y="354" width="56" height="34" rx="10" fill="#fff" opacity="0.08" />
+                <rect x="262" y="354" width="56" height="34" rx="10" fill="#fff" opacity="0.08" />
+                <rect x="236" y="402" width="44" height="5" rx="2.5" fill="#fff" opacity="0.45" />
+                <path d="M190 120 L246 108 L196 300 Z" fill="#fff" opacity="0.05" />
+              </g>
+            </g>
+
+            <!-- الأيقونات الطافية -->
+            <g class="chip" style="--d:0s">
+              <g transform="translate(82 116)">
+                <circle r="40" class="chip-bg" />
+                <g class="chip-ico" transform="scale(1.7) translate(-12 -12)">
+                  <rect x="3" y="4.5" width="18" height="15" rx="3" />
+                  <path d="M3 9.5h18" />
+                  <circle cx="6.2" cy="7" r="0.6" />
+                  <circle cx="8.4" cy="7" r="0.6" />
+                  <path d="M8 14.5h8" />
+                </g>
+              </g>
+            </g>
+            <g class="chip" style="--d:-1.2s">
+              <g transform="translate(438 124)">
+                <circle r="40" class="chip-bg" />
+                <g class="spin">
+                  <circle r="16" fill="none" stroke="#a78bfa" stroke-width="7" stroke-dasharray="6.2 6.4" />
+                  <circle r="12" fill="none" stroke="#a78bfa" stroke-width="2.6" />
+                  <circle r="5" fill="none" stroke="#22d3ee" stroke-width="2.6" />
+                </g>
+              </g>
+            </g>
+            <g class="chip" style="--d:-2.4s">
+              <g transform="translate(460 300)">
+                <circle r="36" class="chip-bg" />
+                <g class="chip-ico" transform="scale(1.6) translate(-12 -12)">
+                  <circle cx="12" cy="12" r="2" />
+                  <path class="wave w1" d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7" />
+                  <path class="wave w2" d="M5.5 5.5a9.2 9.2 0 0 0 0 13M18.5 5.5a9.2 9.2 0 0 1 0 13" />
+                </g>
+              </g>
+            </g>
+            <g class="chip" style="--d:-3.1s">
+              <g transform="translate(62 300)">
+                <circle r="36" class="chip-bg" />
+                <g class="chip-ico" transform="scale(1.6) translate(-12 -12)">
+                  <path d="M4 8.5a2 2 0 0 1 2-2h2l1.5-2h5L16 6.5h2a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+                  <circle cx="12" cy="12.5" r="3.4" />
+                </g>
+              </g>
+            </g>
+            <g class="chip" style="--d:-4s">
+              <g transform="translate(104 446)">
+                <circle r="34" class="chip-bg" />
+                <g class="chip-ico" transform="scale(1.55) translate(-12 -12)">
+                  <path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z" />
+                  <circle cx="12" cy="10" r="2.4" />
+                </g>
+                <circle class="ping" r="34" />
+              </g>
+            </g>
+            <g class="chip" style="--d:-5s">
+              <g transform="translate(420 448)">
+                <circle r="36" class="chip-bg" />
+                <g class="chip-ico finger" transform="scale(1.6) translate(-12 -12)">
+                  <path d="M7.5 5.6A7.5 7.5 0 0 1 19.5 11.5" />
+                  <path d="M4.6 9.3A7.6 7.6 0 0 0 4.5 12c0 2 .4 3.6 1.1 5" />
+                  <path d="M8.2 18.8c-.9-2-1.3-4-1.3-6.3a5 5 0 0 1 10 0c0 1.6-.1 3.1-.4 4.6" />
+                  <path d="M12 12.5c0 3 .5 5.7 1.6 8" />
+                  <path d="M9.6 12.5a2.4 2.4 0 0 1 4.8 0c0 1.2 0 2.3-.2 3.4" />
+                  <path d="M19.6 14.6c-.2 1.6-.6 3.1-1.1 4.5" />
+                </g>
+              </g>
+            </g>
+
+            <g class="sparks">
+              <circle cx="150" cy="200" r="2.4" />
+              <circle cx="372" cy="210" r="2" />
+              <circle cx="350" cy="392" r="2.6" />
+              <circle cx="176" cy="380" r="1.8" />
+              <circle cx="260" cy="60" r="2.2" />
+              <circle cx="40" cy="200" r="1.6" />
+              <circle cx="488" cy="210" r="1.8" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="glass welcome-card">
+          <div class="eyebrow"><span class="dot"></span> BTEC IT · تقييم تفاعلي</div>
+          <h1 id="welcome-title" class="title">تحدي معمارية <span class="grad-text">تطبيقات الهواتف الذكية</span></h1>
+          <p class="lead">
+            مرحباً بكِ أيتها المبرمجة الواعدة! 💡 عشرون موقفاً واقعياً تختبر فهمكِ لخصائص تطبيقات الأجهزة المحمولة ومنطق عملها:
+            كيف تُبنى؟ أين يعمل كودها؟ وكيف نحكم عليها بالأدلة؟ ركّزي، وفكّري كمهندسة برمجيات.
+          </p>
+
+          <div class="bento">
+            <div class="bento-item"><strong>20</strong><span>سؤالاً</span></div>
+            <div class="bento-item"><strong>3</strong><span>خيارات لكل سؤال</span></div>
+            <div class="bento-item"><strong>✓</strong><span>تغذية راجعة فورية</span></div>
+          </div>
+
+          <form id="start-form" class="start-form" novalidate>
+            <div class="field">
+              <label for="student-name">اسم الطالبة الثلاثي <span class="req">*</span></label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6" /></svg>
+                <input id="student-name" name="studentName" type="text" autocomplete="name" placeholder="مثال: سارة أحمد محمود" maxlength="80" required />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="student-grade">الصف <span class="req">*</span></label>
+                <div class="input-wrap select-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z" /><path d="M7 11.5V16c1.5 1.4 3 2 5 2s3.5-.6 5-2v-4.5" /></svg>
+                  <select id="student-grade" name="grade" required>
+                    <option value="" selected disabled>اختاري الصف</option>
+                    <option>الصف العاشر</option>
+                    <option>الصف الحادي عشر</option>
+                    <option>الصف الثاني عشر</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="student-section">الشعبة</label>
+                <div class="input-wrap select-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" /><path d="M9 12h6M12 9v6" /></svg>
+                  <select id="student-section" name="section">
+                    <option value="">بدون شعبة</option>
+                    <option>أ</option>
+                    <option>ب</option>
+                    <option>ج</option>
+                    <option>د</option>
+                    <option>هـ</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+
+            <button type="submit" class="btn btn-primary btn-xl" id="start-btn">
+              <span>ابدئي التحدي الآن 🚀</span>
+            </button>
+
+            <div id="resume-box" class="resume-box" hidden>
+              <div>
+                <strong>لديكِ محاولة غير مكتملة</strong>
+                <span id="resume-info"></span>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" id="resume-btn">متابعة من حيث توقفتِ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== شاشة الاختبار ===================== -->
+    <section id="screen-quiz" class="screen" aria-label="أسئلة الاختبار">
+      <header class="quiz-top glass">
+        <div class="student-chip">
+          <span class="avatar" id="avatar">س</span>
+          <div class="who">
+            <strong id="quiz-student-name">—</strong>
+            <small id="quiz-student-grade">—</small>
+          </div>
+        </div>
+        <div class="progress-block">
+          <div class="progress-meta">
+            <span id="q-counter">السؤال 1 من 20</span>
+            <span id="answered-counter">تمت الإجابة: 0/20</span>
+          </div>
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="progressbar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-submit" id="submit-top">إنهاء وتسليم الاختبار</button>
+      </header>
+
+      <div class="quiz-layout">
+        <article class="glass question-card" id="question-card" aria-live="polite">
+          <div class="q-head">
+            <div class="q-icon" id="q-icon" aria-hidden="true"></div>
+            <div class="q-meta">
+              <span class="q-num" id="q-num">السؤال 1</span>
+              <span class="q-tag" id="q-tag">—</span>
+            </div>
+          </div>
+          <h2 class="q-text" id="q-text">—</h2>
+          <div class="options" id="options" role="radiogroup" aria-labelledby="q-text"></div>
+          <p class="kbd-hint">💡 تلميح: يمكنكِ استخدام المفاتيح 1 · 2 · 3 للاختيار، والأسهم للتنقل.</p>
+        </article>
+
+        <aside class="glass navigator" aria-label="خريطة الأسئلة">
+          <h3>خريطة الأسئلة</h3>
+          <div class="nav-grid" id="nav-grid"></div>
+          <div class="legend">
+            <span><i class="lg lg-current"></i> الحالي</span>
+            <span><i class="lg lg-done"></i> مُجاب</span>
+            <span><i class="lg lg-empty"></i> غير مُجاب</span>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="quiz-nav">
+        <button type="button" class="btn btn-ghost" id="prev-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+          السابق
+        </button>
+        <button type="button" class="btn btn-primary" id="next-btn">
+          التالي
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+      </footer>
+    </section>
+
+    <!-- ===================== شاشة النتيجة ===================== -->
+    <section id="screen-results" class="screen" aria-labelledby="result-title">
+      <div class="result-grid">
+        <div class="glass result-hero">
+          <div class="ring-wrap">
+            <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+              <defs>
+                <linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#22d3ee" />
+                  <stop offset="0.5" stop-color="#a78bfa" />
+                  <stop offset="1" stop-color="#f472b6" />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="52" class="ring-track" />
+              <circle cx="60" cy="60" r="52" class="ring-bar" id="ring-bar" />
+            </svg>
+            <div class="ring-label">
+              <strong id="r-percent">0%</strong>
+              <span id="r-score">0 / 20</span>
+            </div>
+          </div>
+          <div class="result-info">
+            <span class="eyebrow"><span class="dot"></span> نتيجة التحدي</span>
+            <h2 id="result-title" class="r-name">—</h2>
+            <p class="r-grade" id="r-grade">—</p>
+            <div class="rating" id="r-rating">—</div>
+            <p class="r-msg" id="r-msg">—</p>
+          </div>
+        </div>
+
+        <div class="bento result-stats">
+          <div class="bento-item ok"><strong id="s-correct">0</strong><span>إجابات صحيحة</span></div>
+          <div class="bento-item bad"><strong id="s-wrong">0</strong><span>تحتاج مراجعة</span></div>
+          <div class="bento-item"><strong id="s-time">00:00</strong><span>مدة الحل</span></div>
+          <div class="bento-item"><strong id="s-attempt">1</strong><span>رقم المحاولة</span></div>
+        </div>
+
+        <div class="glass save-status" id="save-status" data-state="idle" role="status" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <div class="save-icon" aria-hidden="true"></div>
+          <p id="save-text">—</p>
+          <button type="button" class="btn btn-ghost btn-sm" id="resend-btn" hidden>إعادة محاولة الحفظ</button>
+        </div>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="review-jump">📋 مراجعة الإجابات</button>
+          <button type="button" class="btn btn-ghost" id="retry-btn">🔁 إعادة المحاولة</button>
+        </div>
+
+        <div class="review" id="review">
+          <div class="review-head">
+            <h3>مراجعة الإجابات والتعليل</h3>
+            <div class="filters" role="tablist">
+              <button type="button" class="chip-btn active" data-filter="all">الكل</button>
+              <button type="button" class="chip-btn" data-filter="wrong">الخاطئة فقط</button>
+              <button type="button" class="chip-btn" data-filter="right">الصحيحة</button>
+            </div>
+          </div>
+          <div class="review-list" id="review-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- نافذة منبثقة -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card glass" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-icon" id="modal-icon"></div>
+      <h3 id="modal-title">—</h3>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
