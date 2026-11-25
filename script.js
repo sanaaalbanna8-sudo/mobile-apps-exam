@@ -9,7 +9,7 @@
    (ينتهي الرابط عادةً بـ /exec)
    --------------------------------------------------------- */
 const CONFIG = {
-  GOOGLE_SCRIPT_URL: 'PASTE_YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE',
+  GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwASLrMV_YaSIsNT7i-HisR8jWLn_YVd2Jm-C4S4FB7scEF-eoPdhdYrgiB9SKBd7M_3w/exec',
 
   SHUFFLE_OPTIONS: true,        // خلط ترتيب الخيارات (أ، ب، ج) لكل طالبة
   AUTO_ADVANCE: true,           // الانتقال التلقائي للسؤال التالي بعد أول اختيار
